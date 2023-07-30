@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\UserData;
 use App\Users;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,13 +21,11 @@ class UsersSync implements ShouldQueue
 
         // Loop through each user
         foreach ($users as $user) {
-            // Find or create the corresponding record in 'user_datas' table based on email
-            $userData = Users::firstOrNew(['email' => $user->email]);
-            // Update the user data in 'user_datas' table
+            $userData = UserData::firstOrNew(['email' => $user->email]);
             $userData->name = $user->name;
             $userData->role = $user->role;
             $userData->address = $user->address;
-            $userData->contact_no = $user->contact_no;
+            $userData->contact_no = $user->phone;
             $userData->save();
         }
     }
