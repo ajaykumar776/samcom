@@ -44,7 +44,7 @@
 
             <div class="card-header d-flex justify-content-between">
                 <div>
-                    <a href="#" class="">Go Back</a>
+                    <a href="/" class="">Go Back</a>
                 </div>
                 <div>
                     <h5 class="card-title">{{ 'Register' }} Form</h5>
